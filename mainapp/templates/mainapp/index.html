@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-5 offset-1">
             <b>Добавить пользователя:</b>
-            <form action="" method="post">
+            <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.name }}
                 {{ form.surname }}
@@ -41,17 +41,20 @@
             <b>Новые пользователи:</b>
 
             {% for info in all_users %}
-            <div class="alert alert-warning ">
-                <div class="row">
-                    <div class="col-7">
-                        <b>Имя: </b>{{ info.name }} <b>Фамилия: </b>{{ info.surname }}<br>
-                    </div>
-                    <div class="col-3 offset-1">
-                       {{ info.image }}
-<!--                        <img src="{{ info.image }}" alt="Фото пользователя" class="">-->
+                <div class="alert alert-warning ">
+                    <div class="row">
+                        <div class="col-7">
+                            <b>Имя: </b>{{ info.name }} <b>Фамилия: </b>{{ info.surname }}<br>
+                        </div>
+                        <div class="col-3 offset-1">
+                            {% if info.image %}
+                                <img src="{{ info.image.url }}" width="100" alt="Фото пользователя">  {#Убрать!!!#}
+                            {% else %}
+                                <img src="https://prostomac.com/wp-content/uploads/2015/10/emoji-icon.png" width="100" alt="Фото пользователя">
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
 
         </div>

@@ -6,7 +6,7 @@ from .models import Users
 def index(request):
 
     if request.method == 'POST':
-        form = UsersForm(request.POST, request.FILES)  # add request.FILES !!!
+        form = UsersForm(request.POST, request.FILES)
         form.save()
 
     form = UsersForm()
@@ -14,11 +14,7 @@ def index(request):
     all_users = []
 
     for user in users:
-        users_info = {
-            'name': user.name,
-            'surname': user.surname,
-            'image': user.image,  # add 'image': user.image,
-        }
+        users_info = dict(name=user.name, surname=user.surname, image=user.image)
         all_users.append(users_info)
 
     context = {'all_users': all_users, 'form': form}

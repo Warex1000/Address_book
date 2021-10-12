@@ -119,10 +119,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # create way to save static file (photo) and then we create static folder
 
 MEDIA_URL = '/media/'   # сылка на медиа файлы, где будет производиться поиск картинок и т.п.
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
