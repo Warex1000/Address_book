@@ -23,7 +23,7 @@
 <div class="container">
     <div class="row">
         <div class="col-5 offset-1">
-            <h1>Добавить пользователя</h1>
+            <b>Добавить пользователя:</b>
             <form action="" method="post">
                 {% csrf_token %}
                 {{ form.name }}
@@ -38,7 +38,7 @@
             </form>
         </div>
         <div class="col-4 offset-2">
-            <h1>Все пользователи</h1>
+            <b>Новые пользователи:</b>
 
             {% for info in all_users %}
             <div class="alert alert-warning ">

@@ -49,7 +49,8 @@ create models in mainapp, file models.py
 
 pip3 install pillow - install for using models.ImageField fore pictures
 pip3 install requests - for requests
-
+pip3 install -r requirements.txt - for install requests
+pip freeze | xargs pip uninstall -y - for dell requests
 
 pip3 freeze - Чтобы получить список пакетов в проекте выполняем команду
 pip3 freeze > requirements.txt - Для записи вывода в requirements.txt, Команду выполняем в корне проекта. 

@@ -1,5 +1,7 @@
+from django.core.files.uploadedfile import SimpleUploadedFile
+
 from .models import Users
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm, TextInput, FileInput, ImageField
 
 
 class UsersForm(ModelForm):
@@ -14,5 +16,5 @@ class UsersForm(ModelForm):
             'street': TextInput(attrs={'placeholder': 'Улица'}),
             'url_users': TextInput(attrs={'placeholder': 'URL пользователя'}),
             'phone': TextInput(attrs={'placeholder': 'Номер телефона'}),
-            'image': TextInput(attrs={'placeholder': 'Изображение'}),
+            # 'image': TextInput(attrs={'placeholder': 'Изображение'}),
         }
