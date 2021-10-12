@@ -16,5 +16,4 @@ class UsersForm(ModelForm):
             'street': TextInput(attrs={'placeholder': 'Улица'}),
             'url_users': TextInput(attrs={'placeholder': 'URL пользователя'}),
             'phone': TextInput(attrs={'placeholder': 'Номер телефона'}),
-            # 'image': TextInput(attrs={'placeholder': 'Изображение'}),
         }

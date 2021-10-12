@@ -5,7 +5,7 @@ from .models import Users
 
 def index(request):
 
-    if(request.method == 'POST'):
+    if request.method == 'POST':
         form = UsersForm(request.POST, request.FILES)  # add request.FILES !!!
         form.save()
 
