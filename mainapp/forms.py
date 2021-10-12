@@ -1,7 +1,6 @@
-from django.core.files.uploadedfile import SimpleUploadedFile
+from django.forms import ModelForm, TextInput
 
 from .models import Users
-from django.forms import ModelForm, TextInput, FileInput, ImageField
 
 
 class UsersForm(ModelForm):

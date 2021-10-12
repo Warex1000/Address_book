@@ -26,14 +26,7 @@
             <b>Добавить пользователя:</b>
             <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form.name }}
-                {{ form.surname }}
-                {{ form.country }}
-                {{ form.city }}
-                {{ form.street }}
-                {{ form.url_users }}
-                {{ form.phone }}
-                {{ form.image }}
+                {{ form.as_p }}
                 <input type="submit" name="send" value="Сохранить" class="mt-2 btn btn-warningx">
             </form>
         </div>

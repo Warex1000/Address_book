@@ -3,6 +3,10 @@ from django.core.validators import RegexValidator
 
 
 class Users(models.Model):
+    phone_regex = RegexValidator(
+        regex=r'^\+?1?\d{5,12}$',
+        message='Номер телефона необходимо вводить в формате «+999999999» Допускается от 5 до 12 цифр.'
+    )
 
     name = models.CharField(max_length=20, verbose_name='Имя пользователя')
     surname = models.CharField(max_length=20, verbose_name='Фамилия пользователя')
