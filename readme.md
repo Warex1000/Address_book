@@ -1,4 +1,3 @@
-"""
 Суть:
 Реализовать адресную книгу.
 
@@ -26,10 +25,8 @@ URL (опциональное поле, с валидацией)
 Поиск по текстовым полям
 
 Готовое тестовое должно быть вылито на публичный гит.
-"""
 
 
-'''
 My actions:
 import django - install django with pycharm and test it
 print(django.get_version()) - check django version
@@ -54,7 +51,7 @@ pip freeze | xargs pip uninstall -y - for dell requests
 
 pip3 freeze - Чтобы получить список пакетов в проекте выполняем команду
 pip3 freeze > requirements.txt - Для записи вывода в requirements.txt, Команду выполняем в корне проекта. 
-'''
+
 
 # Функции:
 # AddUser
