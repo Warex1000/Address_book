@@ -1,20 +1,12 @@
 {% extends "mainapp/base.html" %}
-{#{% extends "mainapp/index.html" %}#}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-5 offset-1">
-            <b>Редактировать пользователя:</b>
-            <form action="" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" name="send" value="{{ user.name }}" class="mt-2 btn btn-warningx">{# change value user.name#}
-            </form>
-        </div>
-{% endblock %}
-
-        </div>
-    </div>
+<div class="col-5 offset-1">
+    <b>Редактировать пользователя:</b>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ new_user.as_p }}{#edit this#}
+        <input type="submit" name="send" value="Сохранить" class="mt-2 btn btn-warningx">
+    </form>
 </div>
-
+{% endblock %}

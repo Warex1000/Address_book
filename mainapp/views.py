@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 
 from .forms import UsersForm
 from .models import Users
@@ -6,18 +6,12 @@ from .models import Users
 
 def index(request):
     if request.method == 'POST':
-        form = UsersForm(request.POST, request.FILES or None)
-        form.save()
+        new_user = UsersForm(request.POST, request.FILES or None)
+        new_user.save()
 
-    form = UsersForm()
-    users = Users.objects.all()
-    all_users = []
-
-    for user in users:
-        users_info = dict(name=user.name, surname=user.surname, image=user.image)
-        all_users.append(users_info)
-
-    context = {'all_users': all_users, 'form': form}
+    new_user = UsersForm()
+    all_users = Users.objects.all()
+    context = {'all_users': all_users, 'new_user': new_user}
     return render(request, 'mainapp/index.html', context)
 
 
