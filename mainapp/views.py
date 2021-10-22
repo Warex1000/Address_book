@@ -60,7 +60,7 @@ def edit(request):
 
 # def edite(self, *, object_list=None, **kwargs):
 #     context = super().edite(**kwargs)
-#     context['users'] = Users.objects.get(pk=self.kwargs['users'],)
+#     context['users'] = Users.objects.)
 #     assert isinstance(context, Users.objects)
 #     return Users.objects.filter(category_id=self.kwargs['users'])
 
