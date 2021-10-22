@@ -1,42 +1,20 @@
 {% extends "mainapp/base.html" %}
-{% block content %}
+{#{% extends "mainapp/index.html" %}#}
 
+{% block content %}
 <div class="container">
     <div class="row">
         <div class="col-5 offset-1">
             <b>Редактировать пользователя:</b>
             <form action="" method="POST" enctype="multipart/form-data">
-{#                <form action="{% url 'edit' %}" method="post">#}
                 {% csrf_token %}
                 {{ form.as_p }}
                 <input type="submit" name="send" value="{{ user.name }}" class="mt-2 btn btn-warningx">{# change value user.name#}
             </form>
         </div>
-        <div class="col-4 offset-2">
-            <b>Все пользователи:</b>
-
-            {% for info in all_users %}
-                <div class="alert alert-warning ">
-                    <div class="row">
-                        <div class="col-7">
-                            <b>Имя: </b>{{ info.name }} <b>Фамилия: </b>{{ info.surname }}<br>
-                        </div>
-                        <div class="col-3 offset-1">
-                            {% if info.image %}
-                                <img src="{{ info.image.url }}" width="100" alt="Фото пользователя">
-                            {% else %}
-                                <img src="https://prostomac.com/wp-content/uploads/2015/10/emoji-icon.png"
-                                     width="100"
-                                     alt="Фото пользователя"
-                                > {# Do carry over!!! #}
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+{% endblock %}
 
         </div>
     </div>
 </div>
 
-{% endblock %}

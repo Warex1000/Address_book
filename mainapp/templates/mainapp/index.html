@@ -1,45 +1,19 @@
 {% extends "mainapp/base.html" %}
+
+
+
 {% block content %}
-
-    <div class="container">
-    <div class="row">
-        <div class="col-5 offset-1">
-
-            <b>Добавить пользователя:</b>
-            <form action="" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" name="send" value="Сохранить" class="mt-2 btn btn-warningx">
-            </form>
-        </div>
-        <div class="col-4 offset-2">
-
-            <b>Новые пользователи:</b>
-            {% for info in all_users %}
-                <div class="alert alert-warning ">
-                    <div class="row">
-                        <div class="col-7">
-                            <b>Имя: </b>{{ info.name }} <b>Фамилия: </b>{{ info.surname }}<br>
-                        </div>
-                        <div class="col-3 offset-1">
-                            {% if info.image %}
-                                <img src="{{ info.image.url }}" width="100" alt="Фото пользователя">
-                            {% else %}
-                                <img src="https://prostomac.com/wp-content/uploads/2015/10/emoji-icon.png"
-                                     width="100"
-                                     alt="Фото пользователя"
-                                > {# Do carry over!!! #}
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-
-        </div>
-    </div>
+<div class="col-5 offset-1">
+    <b>Добавить пользователя:</b>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="send" value="Сохранить" class="mt-2 btn btn-warningx">
+    </form>
 </div>
-
 {% endblock %}
+
+
 
 
 
