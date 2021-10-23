@@ -20,8 +20,8 @@ class Users(models.Model):
     )
     image = models.ImageField(verbose_name='Изображение', blank=True, null=True)
 
-    def get_absolute_url(self):
-        return reverse('edit', kwargs={"pk": self.pk})
+    # def get_absolute_url(self):
+    #     return reverse('edit', kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.surname

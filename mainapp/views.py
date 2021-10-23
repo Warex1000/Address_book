@@ -15,14 +15,8 @@ def index(request):
     return render(request, 'mainapp/index.html', context)
 
 
-def delete(request, user_id):
-    user = Users.objects.get(pk=user_id)
-    user.delete()
-
-    return redirect('/')
-
-
-def edit(request):
+def contactProfile(request, pk):
+    contact = Users.objects.get(id=pk)
     users = Users.objects.all()
     all_users = []
 
@@ -30,8 +24,29 @@ def edit(request):
         users_info = dict(name=user.name, surname=user.surname, image=user.image)
         all_users.append(users_info)
 
-    context = {'all_users': all_users}
-    return render(request, 'mainapp/edit.html', context)
+    all_users_context = {'all_users': all_users, 'info': contact}
+    return render(request, 'mainapp/contact-profile.html', all_users_context)
+
+
+def delete(request, user_id):
+    user = Users.objects.get(pk=user_id)
+    user.delete()
+
+    return redirect('/')
+
+# 39:30
+
+
+# def edit(request):
+#     users = Users.objects.all()
+#     all_users = []
+#
+#     for user in users:
+#         users_info = dict(name=user.name, surname=user.surname, image=user.image)
+#         all_users.append(users_info)
+#
+#     context = {'all_users': all_users}
+#     return render(request, 'mainapp/edit.html', context)
 
 
 # def edit(request, users_id):

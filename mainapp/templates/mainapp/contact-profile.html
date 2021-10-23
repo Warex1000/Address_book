@@ -1,0 +1,70 @@
+{% extends "mainapp/base.html" %}
+
+{% block content %}
+    <div class="col-5 offset-1">
+        <b>Информация про пользователя:</b>
+
+        <style>
+        #backgroundcolor {
+
+        background-color:#fff3cd;
+
+        }
+        </style>
+
+        <div class="container" id="backgroundcolor">
+
+            <header class="hero">
+                <a href="/">
+                    <i class="fas fa-chevron-circle-left back-btn"></i>
+                </a>
+                <div class="hero-info">
+                    <b>Имя: </b>{{ info.name | title }}
+                    <br>
+                    <b>Фамилия: </b>{{ info.surname | title }}
+                </div>
+            </header>
+
+            <section class="contact-info">
+                <div class="info-line">
+                    <i class="fas fa-phone icon-gradient"></i>
+                    <b>Страна: </b>{{ info.country }}
+                </div>
+                <div class="info-line">
+                    <i class="fas fa-phone icon-gradient"></i>
+                    <b>Город: </b>{{ info.city }}
+                </div>
+                <div class="info-line">
+                    <i class="fas fa-phone icon-gradient"></i>
+                    <b>Улица: </b>{{ info.street }}
+                </div>
+                <div class="info-line">
+                    <i class="fas fa-phone icon-gradient"></i>
+                    <b>URL: </b>{{ info.url_users }}
+                </div>
+                <div class="info-line">
+                    <i class="fas fa-phone icon-gradient"></i>
+                    <b>Телефон: </b>{{ info.phone }}
+                    <br>
+                    <br>
+                </div>
+                <div class="info-line">
+
+                <div class="col-3 offset-1">
+                    {% if info.image %}
+                        <img src="{{ info.image.url }}" width="330" alt="Фото пользователя">
+                    {% else %}
+                        <img
+                                src="https://prostomac.com/wp-content/uploads/2015/10/emoji-icon.png"
+                                width="100"
+                                alt="Фото пользователя"
+                        >
+                    {% endif %}
+                </div>
+                    <br>
+                    <i class="fas fa-phone icon-gradient"></i>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}

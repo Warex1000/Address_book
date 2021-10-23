@@ -1,4 +1,3 @@
-{#{% load static %} if im load static css#}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -29,8 +28,7 @@
 
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
         <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'index' %}">Главная</a>
-          <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'edit' %}">Редактировать пользователя</a>
-{#          <form action="{% url 'edit' user_id %} "method='post'>Редактировать пользователя</form> {# ToDo ! #}
+
       </nav>
 </div>
 <div class="container">
@@ -38,12 +36,16 @@
         {% block content %}{% endblock %}
         <div class="col-4 offset-2">
             <b>Новые пользователи:</b>
-            {% for info in all_users %}
+            {% for info in all_users reversed %}{# add reversed for views, information in back update !!! #}
                 <div class="alert alert-warning ">
                     <div class="row">
                         <div class="col-7">
-                            <b>Имя: </b>{{ info.name }} <br><b>Фамилия: </b>{{ info.surname }}<br>
+                            <b>Имя: </b>{{ info.name | title }} <br>
+                            <b>Фамилия: </b>{{ info.surname | title }}<br>
+                            <b>Телефон: </b>{{ info.phone }} <br>
+{#                            <b><a href="{% url 'profile' info.id %}"></a></b><br>#}
                         </div>
+
                         <div class="col-3 offset-1">
                             {% if info.image %}
                                 <img src="{{ info.image.url }}" width="100" alt="Фото пользователя">
