@@ -27,18 +27,16 @@ def contactProfile(request, pk):
     all_users_context = {'all_users': all_users, 'info': contact}
     return render(request, 'mainapp/contact-profile.html', all_users_context)
 
-
-def delete(request, user_id):
-    user = Users.objects.get(pk=user_id)
-    user.delete()
-
-    return redirect('/')
-
 # 39:30
 
+# def delete(request, pk):
+#     user = Users.objects.get(id=pk)
+#     user.delete()
+#
+#     return redirect('/')
 
-# def edit(request):
-#     users = Users.objects.all()
+# def edit(request, pk):
+#     user = Users.objects.get(id=pk)
 #     all_users = []
 #
 #     for user in users:
