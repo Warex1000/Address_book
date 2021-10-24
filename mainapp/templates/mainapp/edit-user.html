@@ -1,0 +1,116 @@
+{% extends "mainapp/base.html" %}
+
+{% block content %}
+    <div class="col-5 offset-1">
+        Редактировать пользователя: <b>{{ info.name | title }} {{ info.surname | title }}</b>
+
+        <style>
+        #backgroundcolor {
+
+        background-color:#fff3cd;
+
+        }
+        </style>
+
+        <div class="container" id="backgroundcolor">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <section class="contact-info">
+                    <br>
+
+                    <div class="info-line">
+                        <i class="fas fa-phone icon-gradient"></i>
+                        <input type="text" class="type" name="name" placeholder="Имя"
+                            value="{{ info.name | title }}">
+                    </div>
+
+                    <div class="info-line">
+                        <i class="fas fa-user-circle icon-gradient"></i>
+                        <input type="text" class="type" name="surname" placeholder="Фамилия"
+                            value="{{ info.surname | title }}">
+                    </div>
+
+                    <div class="info-line">
+                        <i class="fas fa-sms icon-gradient"></i>
+                        <input type="text" class="type" name="country" placeholder="Страна"
+                            value="{{ info.country }}">
+                    </div>
+
+                    <div class="info-line">
+                        <i class="fas fa-envelope icon-gradient"></i>
+                        <input type="text" class="type" name="city" placeholder="Город"
+                               value="{{ info.city }}">
+                    </div>
+
+                    <div class="info-line">
+                        <i class="fas fa-map-marker-alt icon-gradient location"></i>
+                        <input type="text" class="type" name="street" placeholder="Улица" value="{{ info.street }}">
+                    </div>
+
+                    <div class="info-line">
+                        <i class="fas fa-map-marker-alt icon-gradient location"></i>
+                        <input type="text" class="type" name="url_users" placeholder="URL" value="{{ info.url_users }}">
+                    </div>
+
+                    <div class="info-line">
+                        <i class="fas fa-map-marker-alt icon-gradient location"></i>
+                        <input
+                                type="text"
+                                class="type"
+                                name="phone"
+                                placeholder="Номер телефона"
+                                value="{{ info.phone }}"
+                        >
+                    </div>
+
+                    <div class="info-line">
+                        <i class="fas fa-map-marker-alt icon-gradient location"></i>
+                        <input type="text" class="type" name="image" placeholder="Фотография" value="{{ info.image }}">
+                    </div>
+
+                    <br>
+                    <div class="col-3 offset-1">
+                        {% if info.image %}
+                            <img src="{{ info.image.url }}" width="230" alt="Фото пользователя">
+                        {% else %}
+                            <img src="https://prostomac.com/wp-content/uploads/2015/10/emoji-icon.png"
+                                 width="100"
+                                 alt="Фото пользователя"
+                            >
+                        {% endif %}
+                    </div>
+                    <br>
+                </section>
+
+                <section class="button-container">
+                    <div class="update-contact">
+                        <i class="fas fa-check-circle icon-gradient"></i>
+                        <button class="button">Save Contact</button>
+                    </div>
+                </section>
+            </form>
+            <br>
+        </div>
+    </div>
+{% endblock %}
+{#		<section class="button-container">#}
+{##}
+{#			<a href="{% url 'delete' info.id %}">#}
+{#				<div class="update-contact">#}
+{#					<i class="fas fa-trash icon-gradient"></i>#}
+{#					<button class="button">Delete Contact</button>#}
+{#				</div>#}
+{#			</a>#}
+{##}
+{#		</section>#}
+
+
+
+{#    <div class="col-5 offset-1">#}
+{#        <b>Редактировать пользователя:</b>#}
+{#        <form action="" method="POST" enctype="multipart/form-data">#}
+{#            {% csrf_token %}#}
+{#            {{ form.as_p }}{#edit this#}
+{#            <input type="submit" name="send" value="Сохранить" class="mt-2 btn btn-warningx">#}
+{#        </form>#}
+{#    </div>#}

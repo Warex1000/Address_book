@@ -19,6 +19,7 @@
                     <i class="fas fa-chevron-circle-left back-btn"></i>
                 </a>
                 <div class="hero-info">
+                    <br>
                     <b>Имя: </b>{{ info.name | title }}
                     <br>
                     <b>Фамилия: </b>{{ info.surname | title }}
@@ -28,15 +29,15 @@
             <section class="contact-info">
                 <div class="info-line">
                     <i class="fas fa-phone icon-gradient"></i>
-                    <b>Страна: </b>{{ info.country }}
+                    <b>Страна: </b>{{ info.country | title }}
                 </div>
                 <div class="info-line">
                     <i class="fas fa-phone icon-gradient"></i>
-                    <b>Город: </b>{{ info.city }}
+                    <b>Город: </b>{{ info.city | title }}
                 </div>
                 <div class="info-line">
                     <i class="fas fa-phone icon-gradient"></i>
-                    <b>Улица: </b>{{ info.street }}
+                    <b>Улица: </b>{{ info.street | title }}
                 </div>
                 <div class="info-line">
                     <i class="fas fa-phone icon-gradient"></i>
@@ -60,11 +61,17 @@
                                 alt="Фото пользователя"
                         >
                     {% endif %}
+                <br>
+                <br>
+                    <form action="{% url 'index' %}">
+                        <input type="submit" value="На главную страницу"/>
+                    </form>
                 </div>
                     <br>
                     <i class="fas fa-phone icon-gradient"></i>
                 </div>
             </section>
+
         </div>
     </div>
 {% endblock %}
