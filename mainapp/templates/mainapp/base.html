@@ -33,13 +33,16 @@
                 {% block content %}{% endblock %}
                 <div class="col-4 offset-2">
                     <b>Новые пользователи:</b>
-                    {% for info in all_users reversed %}{# add reversed for views, information in back update !!! #}
+                    {% for info in all_users reversed %}
                         <div class="alert alert-warning ">
                             <div class="row">
                                 <div class="col-7">
                                     <b>Имя: </b>{{ info.name | title }} <br>
                                     <b>Фамилия: </b>{{ info.surname | title }}<br>
-                                    <b>Телефон: </b>{{ info.phone }} <br>
+                                    <b>Телефон: </b>{{ info.phone }} <br><br>
+                                    <form action="{% url 'profile' info.id %}">
+                                        <input type="submit" value="Детально"/>
+                                    </form>
                                 </div>
                                 <div class="col-3 offset-1">
                                     {% if info.image %}

@@ -17,15 +17,11 @@ def index(request):
 
 def contactProfile(request, pk):
     contact = Users.objects.get(id=pk)
-    users = Users.objects.all()
-    all_users = []
-
-    for user in users:
-        users_info = dict(name=user.name, surname=user.surname, image=user.image)
-        all_users.append(users_info)
-
+    all_users = Users.objects.all()
     all_users_context = {'all_users': all_users, 'info': contact}
     return render(request, 'mainapp/contact-profile.html', all_users_context)
+
+
 
 # 39:30
 
