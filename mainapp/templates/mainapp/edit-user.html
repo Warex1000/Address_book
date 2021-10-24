@@ -13,7 +13,7 @@
         </style>
 
         <div class="container" id="backgroundcolor">
-            <form action="" method="POST">
+            <form action="" enctype="multipart/form-data" method="POST">
                 {% csrf_token %}
                 <section class="contact-info">
                     <br>
@@ -63,11 +63,15 @@
                         >
                     </div>
 
-                    <div class="info-line">
-                        <i class="fas fa-map-marker-alt icon-gradient location"></i>
-                        <input type="text" class="type" name="image" placeholder="Фотография" value="{{ info.image }}">
-                    </div>
-
+                    <br><p>
+                    <input
+                            type="file"
+                            class="type"
+                            name="image"
+                            placeholder="Загрузить фотографию"
+                            value="{{ info.image }}"
+                            accept="image/*"
+                    >
                     <br>
                     <div class="col-3 offset-1">
                         {% if info.image %}
@@ -85,6 +89,7 @@
                 <section class="button-container">
                     <div class="update-contact">
                         <i class="fas fa-check-circle icon-gradient"></i>
+                        <input type="submit" value="Отправить"></p>
                         <button class="button">Save Contact</button>
                     </div>
                 </section>
