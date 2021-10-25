@@ -15,41 +15,34 @@
         <div class="container" id="backgroundcolor">
 
             <header class="hero">
-                <a href="/">
-                    <i class="fas fa-chevron-circle-left back-btn"></i>
-                </a>
-                <div class="hero-info">
                     <br>
                     <b>Имя: </b>{{ info.name | title }}
                     <br>
                     <b>Фамилия: </b>{{ info.surname | title }}
-                </div>
             </header>
 
             <section class="contact-info">
+
                 <div class="info-line">
-                    <i class="fas fa-phone icon-gradient"></i>
                     <b>Страна: </b>{{ info.country | title }}
                 </div>
+
                 <div class="info-line">
-                    <i class="fas fa-phone icon-gradient"></i>
                     <b>Город: </b>{{ info.city | title }}
                 </div>
+
                 <div class="info-line">
-                    <i class="fas fa-phone icon-gradient"></i>
                     <b>Улица: </b>{{ info.street | title }}
                 </div>
+
                 <div class="info-line">
-                    <i class="fas fa-phone icon-gradient"></i>
                     <b>URL: </b>{{ info.url_users }}
                 </div>
+
                 <div class="info-line">
-                    <i class="fas fa-phone icon-gradient"></i>
                     <b>Телефон: </b>{{ info.phone }}
-                    <br>
-                    <br>
+                    <br><br>
                 </div>
-                <div class="info-line">
 
                 <div class="col-3 offset-1">
                     {% if info.image %}
@@ -61,17 +54,21 @@
                                 alt="Фото пользователя"
                         >
                     {% endif %}
-                <br>
-                <br>
-                    <form action="{% url 'index' %}">
-                        <input type="submit" value="На главную страницу"/>
-                    </form>
-                </div>
-                    <br>
-                    <i class="fas fa-phone icon-gradient"></i>
-                </div>
-            </section>
+                    <br><br>
 
+                    <form action="{% url 'edit' info.id %}">
+                        <input type="submit" value="Редактировать информацию"/>
+                    </form>
+
+                    <br>
+                    <form action="{% url 'index' %}">
+                        <input type="submit" value="Назад"/>
+                    </form>
+                    <br>
+
+                </div>
+
+            </section>
         </div>
     </div>
 {% endblock %}

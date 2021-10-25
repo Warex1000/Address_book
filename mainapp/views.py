@@ -24,28 +24,31 @@ def contactProfile(request, pk):
 
 def edit(request, pk):
     contact = Users.objects.get(id=pk)
+
+    if request.method =='POST':
+        contact.name = request.POST['name']
+        contact.surname = request.POST['surname']
+        contact.country = request.POST['country']
+        contact.city = request.POST['city']
+        contact.street = request.POST['street']
+        contact.url_users = request.POST['url_users']
+        contact.phone = request.POST['phone']
+        contact.image = request.FILES['image']
+        contact.save()
+        return redirect('/profile/'+str(contact.id))
+
     all_users = Users.objects.all()
     all_users_context = {'all_users': all_users, 'info': contact}
     return render(request, 'mainapp/edit-user.html', all_users_context)
 
 
-# 48:40
+def delete(request, pk):
+    user = Users.objects.get(id=pk)
 
-# def delete(request, pk):
-#     user = Users.objects.get(id=pk)
-#     user.delete()
-#
-#     return redirect('/')
+    if request.method == 'POST':
+        user.delete()
+        return redirect('/')
 
-# def edit(request, pk):
-#     user = Users.objects.get(id=pk)
-#     all_users = []
-#
-#     for user in users:
-#         users_info = dict(name=user.name, surname=user.surname, image=user.image)
-#         all_users.append(users_info)
-#
-#     context = {'all_users': all_users}
-#     return render(request, 'mainapp/edit-user.html', context)
-
-
+    all_users = Users.objects.all()
+    all_users_context = {'all_users': all_users, 'info': user}
+    return render(request, 'mainapp/delete-user.html', all_users_context)

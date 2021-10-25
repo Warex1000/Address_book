@@ -1,0 +1,40 @@
+{% extends "mainapp/base.html" %}
+
+{% block content %}
+    <div class="col-5 offset-1">
+        Удаление пользователя:
+
+        <style>
+        #backgroundcolor {
+        background-color:#fff3cd;
+        }
+        </style>
+
+        <div class="container" id="backgroundcolor">
+            <header class="hero">
+                    <br>Удалить пользователя: <b>{{ info.name | title }} {{ info.surname | title }} ? </b>
+            </header>
+                    <br>
+                    <div class="col-3 offset-1">
+                        {% if info.image %}
+                            <img src="{{ info.image.url }}" width="230" alt="Фото пользователя">
+                        {% else %}
+                            <img src="https://prostomac.com/wp-content/uploads/2015/10/emoji-icon.png"
+                                 width="100"
+                                 alt="Фото пользователя"
+                            >
+                        {% endif %}
+                    </div>
+                    <br>
+            <form method="POST" >
+                {% csrf_token %}
+                <input type="submit" value="Удалить окончательно"/>
+            </form>
+            <br>
+            <form action="{% url 'edit' info.id %}">
+                <input type="submit" value="Назад"/>
+            </form>
+            <br>
+        </div>
+    </div>
+{% endblock %}

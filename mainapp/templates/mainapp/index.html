@@ -1,12 +1,22 @@
 {% extends "mainapp/base.html" %}
 
 {% block content %}
+
+    <style>
+        #backgroundcolor {
+        background-color:#fff3cd;
+        padding: 15px;
+        }
+    </style>
+
+
     <div class="col-5 offset-1">
-        <b>Добавить пользователя:</b>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <div><b>Добавить пользователя:</b></div>
+        <form action="" method="POST" enctype="multipart/form-data" id="backgroundcolor">
             {% csrf_token %}
             {{ new_user.as_p }}
             <input type="submit" name="send" value="Сохранить" class="mt-2 btn btn-warningx">
         </form>
     </div>
+
 {% endblock %}
