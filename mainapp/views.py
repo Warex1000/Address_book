@@ -13,12 +13,15 @@ def index(request):
     all_users = Users.objects.all()
     search_input = request.GET.get('search_area')
     if search_input:
-        all_users_search = Users.objects.filter(name__icontains=search_input)
+        all_users = Users.objects.filter(surname__icontains=search_input)
     else:
-        all_users_search = Users.objects.all()
+        all_users = Users.objects.all()
         search_input = ''
-    context = {'all_users': all_users, 'new_user': new_user, 'search_input': search_input}
-    return render(request, 'mainapp/index.html', context)
+    return render(
+        request,
+        'mainapp/index.html',
+        {'all_users': all_users, 'new_user': new_user, 'search_input': search_input}
+    )
 
 
 def contactProfile(request, pk):
@@ -31,7 +34,7 @@ def contactProfile(request, pk):
 def edit(request, pk):
     contact = Users.objects.get(id=pk)
 
-    if request.method =='POST':
+    if request.method == 'POST':
         contact.name = request.POST['name']
         contact.surname = request.POST['surname']
         contact.country = request.POST['country']
@@ -39,7 +42,7 @@ def edit(request, pk):
         contact.street = request.POST['street']
         contact.url_users = request.POST['url_users']
         contact.phone = request.POST['phone']
-        contact.image = request.FILES['image']
+        contact.image = request.FILES.get('image')
         contact.save()
         return redirect('/profile/'+str(contact.id))
 

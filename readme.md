@@ -1,3 +1,5 @@
+Задание
+
 Суть:
 Реализовать адресную книгу.
 
@@ -25,36 +27,3 @@ URL (опциональное поле, с валидацией)
 Поиск по текстовым полям
 
 Готовое тестовое должно быть вылито на публичный гит.
-
-
-My actions:
-import django - install django with pycharm and test it
-print(django.get_version()) - check django version
-print('hello world') - test django works
-
-django-admin startproject address_book - create new app
-cd address_book - go to main folder
-python manage.py startapp mainapp - create main app
-register App 'mainapp' in sittings in INSTALLED_APPS
-python3 manage.py makemigrations - Django использует миграции для переноса изменений в моделях (добавление поля, удаление модели и т.д.) на структуру базы данных.
-python3 manage.py migrate - Start migrate
-admin.site.register(Users) - register models in admin.py
-python3 manage.py createsuperuser - create Super User
-python3 manage.py runserver - run server 
-create models in mainapp, file models.py
-
-
-pip3 install pillow - install for using models.ImageField fore pictures
-pip3 install requests - for requests
-pip3 install -r requirements.txt - for install requests
-pip freeze | xargs pip uninstall -y - for dell requests
-
-pip3 freeze - Чтобы получить список пакетов в проекте выполняем команду
-pip3 freeze > requirements.txt - Для записи вывода в requirements.txt, Команду выполняем в корне проекта. 
-
-
-# Функции:
-# AddUser
-# EditUser
-# DeleteUser
-# SearchUser

@@ -23,7 +23,6 @@
         <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
             <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img">
-                    <title>Bootstrap</title>
                     <path
                             fill-rule="evenodd"
                             clip-rule="evenodd"
@@ -36,9 +35,6 @@
             </a>
             <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
                 <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'index' %}">Главная</a>
-
-
-
             </nav>
         </div>
 
@@ -52,8 +48,8 @@
                         <input
                                 type="search-name"
                                 class="contact-search"
-                                name="search-area"
-                                placeholder="Search"
+                                name="search_area"
+                                placeholder="Поиск по фамилии"
                                 value={{search_input}}
                         >
                         <i onclick="document.getElementById('search-form').submit();" style="padding-left: 5px;"
@@ -84,7 +80,10 @@
                             </div>
                         </div>
                     {% empty %}
-                    <h3 style="color: antiquewhite; padding: 20px;"> Контакты не найдены </h3>
+                    <h3 style="color: darkgoldenrod; padding: 20px;"> Контакт не найден </h3>
+                        <form action="{% url 'index' %}">
+                            <input type="submit" value="Назад"/>
+                        </form>
                     {% endfor %}
                 </div>
             </div>

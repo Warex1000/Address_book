@@ -57,15 +57,15 @@
                     </div>
 
                     <br><p>
-                    <input
-                            type="file"
-                            class="type"
-                            name="image"
-                            placeholder="Фотография"
-                            value="{{ info.image }}"
-                            accept="image/*"
-                    >
-                    <br>
+                        <input
+                                type="file"
+                                class="type"
+                                name="image"
+                                placeholder="Фотография"
+                                value="{{ info.image }}"
+                                accept="image/*"
+                        >
+                        <br>
                     <div class="col-3 offset-1">
                         {% if info.image %}
                             <img src="{{ info.image.url }}" width="230" alt="Фото пользователя">
