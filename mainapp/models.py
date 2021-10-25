@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.validators import RegexValidator
-from django.urls import reverse
 
 
 class Users(models.Model):
@@ -19,9 +18,6 @@ class Users(models.Model):
         validators=[phone_regex], max_length=17, verbose_name='Номер телефона', blank=True, null=True
     )
     image = models.ImageField(verbose_name='Изображение', blank=True, null=True)
-
-    # def get_absolute_url(self):
-    #     return reverse('edit', kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.surname

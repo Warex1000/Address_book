@@ -11,7 +11,13 @@ def index(request):
 
     new_user = UsersForm()
     all_users = Users.objects.all()
-    context = {'all_users': all_users, 'new_user': new_user}
+    search_input = request.GET.get('search_area')
+    if search_input:
+        all_users_search = Users.objects.filter(name__icontains=search_input)
+    else:
+        all_users_search = Users.objects.all()
+        search_input = ''
+    context = {'all_users': all_users, 'new_user': new_user, 'search_input': search_input}
     return render(request, 'mainapp/index.html', context)
 
 
