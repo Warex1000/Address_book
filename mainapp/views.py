@@ -24,7 +24,38 @@ def index(request):
     )
 
 
-def contactProfile(request, pk):
+'''
+(example with class)
+class Index(FormView):
+    form_class = UsersForm
+    template_name = 'mainapp/index.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+
+        users = Users.objects.all()
+        all_users = []
+
+        for user in users:
+            users_info = {
+                'name': user.name,
+                'surname': user.surname,
+                'image': user.image,  # add 'image': user.image,
+            }
+            all_users.append(users_info)
+
+        ctx['all_users'] = all_users
+
+        return ctx
+'''
+
+
+def contactprofile(request, pk):
     contact = Users.objects.get(id=pk)
     all_users = Users.objects.all()
     all_users_context = {'all_users': all_users, 'info': contact}
