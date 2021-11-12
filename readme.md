@@ -45,6 +45,8 @@ python manage.py startapp mainapp - create main app
 register App 'mainapp' in sittings in INSTALLED_APPS
 python3 manage.py makemigrations - Django использует миграции для переноса изменений в моделях (добавление поля, удаление модели и т.д.) на структуру базы данных.
 python3 manage.py migrate - Start migrate
+python3 manage.py migrate mainapp zero - dell all migrations
+python3 manage.py migrate mainapp 0002 - dell 0002 migration
 admin.site.register(Users) - register models in admin.py
 python3 manage.py createsuperuser - create Super User
 python3 manage.py runserver - run server 
