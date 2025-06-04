@@ -6,10 +6,11 @@ from .models import Users
 
 def index(request):
     if request.method == 'POST':
-        new_user = UsersForm(request.POST, request.FILES or None)
-        new_user.save()
-
-    new_user = UsersForm()
+        form = UsersForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+    else:
+        form = UsersForm()
     all_users = Users.objects.all()
     search_input = request.GET.get('search_area')
     if search_input:
@@ -20,7 +21,7 @@ def index(request):
     return render(
         request,
         'mainapp/index.html',
-        {'all_users': all_users, 'new_user': new_user, 'search_input': search_input}
+        {'all_users': all_users, 'new_user': form, 'search_input': search_input}
     )
 
 
